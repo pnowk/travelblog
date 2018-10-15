@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    .container.col-md-12
+        .row
+            .col-lg-8
+                h1 #{article.title}
+                h5 by #{author}
+                p!= article.body                
+                hr
+                if user
+                    if user.id  ==article.author
+                        a.btn.btn-default(href='/articles/edit/' + article.id) Edit
+                        a.btn.btn-danger.delete-art(href='#', data-id=article._id, style="margin: 5px" class="pull-right") Delete
+            .col-md-4.latest-posts 
+                h3 Latest Posts
+                    if posts
+                        ul
+                            each post, i in posts
+                                li.latest-post-item
+                                    a(href='/articles/'+ post._id)= post.title 
+                    else
+                        li no recent posts...
+                small
+                    a(href="/") &lt&lt All posts

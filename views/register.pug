@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    .container-fluid
+        .row
+            .col-xs-4
+                h1 Register
+                if errors
+                -console.log(errors);
+                -console.log(formData);
+                form(method='POST', action='/users/register/')
+                    #form-group
+                        label Name:
+                        if formData
+                            input.form-control(name='name', type='text' value=formData.name)
+                        else
+                            input.form-control(name='name', type='text')
+                    #form-group
+                        label Email:
+                        if formData
+                            input.form-control(name='email', type='text' value=formData.email)
+                        else
+                            input.form-control(name='email', type='text')
+                    #form-group
+                        label Username:
+                        if formData
+                            input.form-control(name='username', type='text' value=formData.username)
+                        else
+                            input.form-control(name='username', type='text')
+                    #form-group
+                        label Password:
+                        input.form-control(name='password', type='password')
+                    #form-group
+                        label Confirm:
+                        input.form-control(name='password2', type='password')
+                    br
+                    br
+                    input.btn.btn-primary(type='submit', value='Submit')

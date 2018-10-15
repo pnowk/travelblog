@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    h1 #{title}
+    form(method='POST', action='/articles/add')
+        #form-group
+            select.form-control
+                each place, i in places
+                    option(value=place._id, dest=place.destination) #{place.destination}
+        #form-group
+            label Title:
+            if formData            
+                input.form-control(name='title', type='text' value=formData.title)
+            else
+                input.form-control(name='title', type='text')
+        #form-group
+            label Body:
+            if formData
+                textarea.form-control(name='article1') #{formData.content}
+            else
+                textarea.form-control(name='article1')
+        br
+        input.btn.btn-primary(type='submit', value='Submit')
+    script(src='/js/ckeditor.js')  

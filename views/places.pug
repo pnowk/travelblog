@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h1= title
+    div
+        #map-places
+            p mapa
+    .place-list    
+        ul.list-group
+            each place, i in places
+                li.list-group-item
+                    .place-previews
+                        h3
+                            a(href="/places/"+ place._id)= place.destination
+                        .dates-muted od #{place.dateFrom.toUTCString()}
+                        .dates-muted do #{place.dateTo.toUTCString()}
+    #places-db
+        each place, i in places
+            div(class="places-data" loc = place.location dest= place.destination lat = place.coords.lt lng = place.coords.lg squad = place.squad)
+        //- #{places}
+    script(async, defer, src='https://maps.googleapis.com/maps/api/js?key=AIzaSyALlRDTTC84hjdK6rigdVm6Vl1MoAz7KWE&callback=initMap')
+    script(src='/js/map.js')
+    //- script!= "(function(){var el = document.getElementById('places-hidden'); console.log(el); el.innerHTML = '<h1>HAHAHA</h1>;' })"
+    //- script!= "(" + places.forEach(function(place){console.log(place)})    +")"   
+    //- include test.html               

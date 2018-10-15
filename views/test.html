@@ -1,0 +1,21 @@
+<script async="async" defer="defer" src='https://maps.googleapis.com/maps/api/js?key=AIzaSyALlRDTTC84hjdK6rigdVm6Vl1MoAz7KWE&callback=initMap'></script>
+
+<script>
+    function initMap(){
+        alert('hello');
+        var options = {
+            zoom: 8,
+            center: { lat: 52.54682, lng: 19.70638 }
+        }
+        var map = new google.maps.Map(document.getElementById('map-places'), options);
+        console.log('log z test.html');
+        console.log(places);
+        // console.log(places);
+    }
+
+    initMap();
+</script>
+
+
+    
+  

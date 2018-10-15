@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .container
+    .row
+        .col-xs-12
+        .panel.panel-default
+            .panel-body
+            span.glyphicon.glyphicon-cloud-upload
+            h2 File Uploader
+            h4 coligo.io
+            .progress
+                .progress-bar(role='progressbar')
+            button.btn.btn-lg.upload-btn(type='button') Upload File
+    input#upload-input(type='file', name='uploads[]', multiple='multiple')
+    br

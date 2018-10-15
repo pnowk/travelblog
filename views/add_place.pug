@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    h1 #{title}
+    .container-fluid.col-md-12
+        .col-md-6
+            form(method='POST', action='/places/add')
+                .row.col-md-10        
+                    #form-group
+                            input.form-control(id='searchLocation' name='destination', type='text', placeholder="Cel podróży..")
+                .row.col-md-8
+                    #form-group
+                        label
+                        select(class="form-control input-small" id="selTravel" style="margin: 5px;" name="squad")
+                            option(value="" disabled selected) Uczestnicy...
+                            option(id="together" value="2") Razem
+                            option(id="alone-m" value="1") M sama
+                            option(id="alone-l" value="0") Ł sam
+                .row.col-md-8
+                    .form-inline
+                        input(type="date" class="form-control travel-dates" id="travel-date-from" name="dateFrom")
+                        input(type="date" class="form-control travel-dates" id="travel-date-to" name="dateTo")
+                        #validation-output
+                br
+                .row.col-md-8
+                    #form-group
+                        #coords
+                .row.col-md-8
+                    input.btn.btn-primary(type='submit', value='Submit')
+        .col-md-6
+            div(id='mapResults')
+                    p mapa
+    br
+    br
+    //- script(src='/js/map.js')
+    //- script(async, defer, src='https://maps.googleapis.com/maps/api/js?key=AIzaSyALlRDTTC84hjdK6rigdVm6Vl1MoAz7KWE&callback=initMap')
+    script(async, defer, src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVdjbfbEfYlKxDtZTPYp5exNee68FYLc&libraries=places')
+    script(src='/js/map.js')

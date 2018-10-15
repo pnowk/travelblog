@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .container
+        .button.btn.btn-default.btn-lg(type="button" id="myBtn") Show
+        .modal.fade(id="uploadModal" role="dialog")
+            .modal-dialog
+                .modal-content
+                    .modal-header(style="padding: 10px 10px;")
+                        button.close(type="button" data-dismiss="modal") &times;
+                        span.glyphicon.glyphicon-paperclip
+                    .modal-body
+                        #form-group
+                            .container-fluid
+                                .row
+                                    .col-md-1
+                                        input(type="file" name="filename")
+                    .modal-footer
+                        input.btn.btn-success.pull-left(type="submit", value="upload")
+                        button.btn.btn-danger.btn-default.pull-right(type="submit" data-dismiss="modal") Cancel
+
+    

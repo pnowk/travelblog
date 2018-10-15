@@ -172,7 +172,7 @@ app.get('/', function(req, res) {
 
 //start server
 const normalizePort = require('normalize-port');
-const port = normalizePort(process.env.port || 3000);
+const port = normalizePort(process.env.port || 80);
 
 // const server = http.createServer(listenerOrApp).listen(port, ()=>{
 //     console.log('listening on ${port}');

@@ -170,6 +170,11 @@ app.get('/', function(req, res) {
     });
 });
 
+
+app.get('/listmob', function(req, res) {
+    app.render('/listmob/index.html');
+})
+
 //start server
 const normalizePort = require('normalize-port');
 const port = normalizePort(process.env.port || 80);

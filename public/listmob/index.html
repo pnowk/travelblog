@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title></title>
+</head>
+
+<body>
+
+
+    <section id="home" data-role="page">
+        <header data-role="header">Listmob</header>
+        <div class="content" data-role="content">
+      
+                <ul data-role="listview" data-filter="false" data-filter-placeholder="Szukaj..." data-inset="true">
+                    <li><a href="#list-items">Zakupy</a></li>
+                    <li><a href="#list-items">Praca</a></li>
+                    <li><a href="#list-items">Osobiste</a></li>
+                    <li><a href="#list-items">Wszystkie</a></li>
+                  
+                </ul>
+
+        </div>
+        <footer data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#info" data-icon="info"></a>
+                    </li>
+                    <li>
+                        <a href="#addNew" data-icon="plus" data-rel="dialog"></a>
+                    </li>
+                    <li>
+                        <a href="#settings" data-icon="gear"></a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </section>
+
+    <!-- elementy listy -->
+    <section id="list-items" data-role="page">
+        <header data-role="header">
+            <a href="#home" data-icon="back" data-rel="back" title="back">Wstecz</a>
+            <h1>Lista</h1>
+            <a href="#addNew" data-icon="plus" data-rel="dialog" title="new-item">Dodaj</a>
+
+        </header>
+        <div class="content" data-role="content">
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Szukaj..." data-inset="true">
+                        <li id="entry-template" class="entry" style="display:none;">
+                                <span class="label"></span>
+                                <span class="itemType"></span>
+                                <span class="edit ui-btn ui-icon-edit ui-btn-icon-notext"></span>
+                                <span class="delete ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all"></span>
+                               
+                               
+                            </li>
+                    </ul>
+        </div>
+    </section>
+
+    <!-- info -->
+    <section id="info" data-role="page">
+        <header data-role="header">
+            <a href="#home" data-icon="back" data-rel="back" title="back">Wstecz</a>
+            <h1>O Programie</h1>
+
+        </header>
+        <div class="content" data-role="content">
+            Listmob jest aplikacją do tworzenia i zarządzania listą zadań. Dane zapisywane sa w pomięci lokalnej z wykorzystaniem mechanizmu
+            local storage oraz IndexedDB.
+        </div>
+        <footer data-role="footer" data-position="fixed">
+            <h1>&copy Listmob 2018</h1>
+        </footer>
+    </section>
+
+    <!-- nowy element -->
+    <section id="addNew" data-role="page">
+        <header data-role="header">
+            <a href="#home" data-icon="back" data-rel="back" title="back">Wstecz</a>
+            <h1>Nowy wpis</h1>
+
+        </header>
+        <div class="content" data-role="content">
+            <form action="post">
+                <div class="ui-field-contain">
+                    <label for="taskType">Rodzaj zadania</label>
+                    <select name="select-task-type" id="taskType">
+                            <option>Wybierz...</option>
+                            <optgroup label="rodzaj zadania">
+                                <option value="1">Zakupy</option>
+                                <option value="2">Praca</option>
+                                <option value="3">Osobiste</option>
+                             
+                            </optgroup>
+                           
+                        </select>
+
+                    <label for="newTask">Nowy Wpis</label>
+                    <input type="text" id="newTask" required>
+                  
+
+                    <input type="submit" name="action" value="save" data-icon="check" data-role="button" data-inline="true">
+
+
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ustawienia -->
+    <section id="settings" data-role="page">
+        <header data-role="header">
+            <a href="#home" data-icon="back" data-rel="back" title="back">Wstecz</a>
+            <h1>Ustawienia</h1>
+        </header>
+        <div class="content" data-role="content">
+            <form action="post">
+                <label for="themeType">Wybierz motyw</label>
+                <select name="select-theme" id="themeType">
+                        <option>Wybierz...</option>
+                        <optgroup label="motywy">
+                            <option value="1">Dzień</option>
+                            <option value="2">Noc</option>
+                         
+                        </optgroup>
+                        
+                    </select>
+                <input type="submit" name="action" value="save" data-icon="check" data-role="button" data-inline="true">
+            </form>
+
+        </div>
+    </section>
+
+
+    <!-- edycja zadania -->
+    <section id="editTask" data-role="page">
+            <header data-role="header">
+                    <a href="#home" data-icon="back" data-rel="back" title="back">Wstecz</a>
+                    <h1>Edycja</h1>
+            </header>
+            <div class="content" data-content="content">
+                    <form action="post">
+                    <label for="newTask">Edytuj Wpis</label>
+                    <input type="text" id="editedTask" required>
+                    <input type="submit" name="action" value="save" data-icon="check" data-role="button" data-inline="true">
+                        </form>
+                </div>
+    </section>
+
+
+
+    <!-- <script src="js/jquery-3.3.1.js"></script> -->
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js" integrity="sha256-8oQ1OnzE2X9v4gpRVRMb1DWHoPHJilbur1LP9ykQ9H0="
+        crossorigin="anonymous"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

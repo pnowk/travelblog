@@ -1,0 +1,32 @@
+header, li {
+    text-align: center;
+}
+
+.delete {
+
+    font-size: .9em;
+    padding:0;
+    margin:0 auto;
+}
+
+.itemType {
+    color:#888;
+    font-size: .8em;
+}
+
+li {
+    vertical-align: middle;
+}
+
+
+li span.edit{
+    float: right;
+    /* margin-right: 20px; */
+    margin-top:-20px;
+}
+
+li span.delete{
+    float: right;
+    margin-top:-20px;
+}
+
